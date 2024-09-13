@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div style="display: flex; margin: auto;">
+    <div class="div1" style="width:40%; margin-right: 20px;">
+        <img src="book.image_url" width="100%"/>
+        <br>
+        <div class="card-body" align="center">
+          <a class="btn btn-primary" href="{% url 'books.borrow' book.id %}">
+            Borrow
+          </a>
+        </div>
+    </div>
+    <div class="div2">
+        <h1>The Violet and the Tom</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa cumque est, inventore minima nam tempora ducimus! Illo ullam deleniti quas reprehenderit id temporibus, deserunt ducimus officia fugiat in quisquam nostrum.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa cumque est, inventore minima nam tempora ducimus! Illo ullam deleniti quas reprehenderit id temporibus, deserunt ducimus officia fugiat in quisquam nostrum.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa cumque est, inventore minima nam tempora ducimus! Illo ullam deleniti quas reprehenderit id temporibus, deserunt ducimus officia fugiat in quisquam nostrum.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa cumque est, inventore minima nam tempora ducimus! Illo ullam deleniti quas reprehenderit id temporibus, deserunt ducimus officia fugiat in quisquam nostrum.</p>
+    </div>
+    </div>
+{% endblock %}

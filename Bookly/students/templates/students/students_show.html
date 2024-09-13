@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+  <img src="{{student.image_url}}" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title">{{student.first_name}}</h5>
+    <p class="card-text">{{student.last_name}}</p>
+    <p class="card-text">{{student.email}}</p>
+    <p class="card-text">{{student.phone}}</p>
+    <p class="card-text">{{student.address}}</p>
+    <a href="{% url 'students.index' %}" class="btn btn-primary">Back to All students </a>
+  </div>
+</div>
+
+{% endblock %}

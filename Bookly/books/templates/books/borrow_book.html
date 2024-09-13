@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% load static  %}
+
+{% block content  %}
+  <h1 class="text-center text-primary"> Borrow Book</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" class="btn btn-success" value="Confirm">
+  </form>
+<script src="{% static 'students/js/script.js' %}"></script>
+{% endblock %}

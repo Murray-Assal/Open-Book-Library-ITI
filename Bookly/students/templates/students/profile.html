@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+{% if user.is_superuser %}
+<h1> Dashboard</h1>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="{% url 'books.index' %}" class="card-link">Books</a>
+      <a href="{% url 'students.index' %}" class="card-link">Students</a>
+      <a href="{% url 'password_change' %}" class="card-link">Change Password</a>
+    </div>
+  </div>
+{% else %}
+<h1> Profile</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ student.image_url }}" class="img-fluid" alt="profile image">
+        </div>
+        <div class="col-md-8">
+            <h2>{{ student.username }}</h2>
+            <p>{{ student.first_name }}</p>
+            <p>{{ student.last_name }}</p>
+            <p>{{ student.email }}</p>
+            <p>{{ student.phone }}</p>
+            <p>{{ student.address }}</p>
+        </div>
+    </div>
+    <div align="center">
+      <a href="{% url 'students.edit' student.id %}" class="btn btn-primary">Edit Profile</a>
+    </div>
+    {% endif %}
+    {% endblock %}
