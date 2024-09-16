@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+{% load static  %}
+
+{% block content  %}
+  <h1 class="text-center" style="margin-top: 30px;"> Add new Book</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" class="btn btn-success" value="Add new Book" style="margin-top: 20px;">
+  </form>
+<script src="{% static 'students/js/script.js' %}"></script>
+{% endblock %}

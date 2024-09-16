@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<div style="display: flex; margin: auto; margin-top: 110px; margin-bottom: 110px;">
+    <div class="div1" style="width:40%; margin-right: 20px;">
+        <img src="{{book.image_url}}" width="100%" style="border-radius: 50%;"/>
+        <br>
+        <div class="card-body" align="center">
+          <a class="btn btn-primary" href="{% url 'books.borrow' book.id %}" style="width: 100%;margin-top: 20px;">
+            Borrow
+          </a>
+        </div>
+    </div>
+    <div class="div2">
+        <h1>{{book.title}}</h1>
+        <p>&emsp;{{book.description}}</p>
+        <p>&emsp;{{book.author}}</p>
+        <p>&emsp;{{book.category}}</p>
+        <p>&emsp;{{book.published_date}}</p>
+        <p>&emsp;{{book.publisher}}</p>
+    </div>
+    </div>
+{% endblock %}

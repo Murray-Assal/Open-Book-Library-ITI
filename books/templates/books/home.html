@@ -1,0 +1,20 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+  {% for book in books %}
+        <div class="card" style="width: 18rem; margin-top: 70px; margin-left: 114px; display: inline-block;">
+            <a href="{% url 'books.show' book.id %}"><img src="{{book.image_url}}" class="card-img-top"></a>
+            <div class="card-body" align="center">
+                <a class="btn btn-primary" href="{% url 'books.borrow' book.id %}">
+                    Borrow
+                </a>
+            </div>
+        </div>
+  {% endfor %}
+
+{% if user.is_superuser %}
+<div align="center">
+  <a href="{% url 'books.create' %}" class="btn btn-primary">Add New Book</a>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div align="center" style="margin: 65px;">
+  <h1> Profile</h1>
+</div>
+
+
+<div class="container"></div>
+  <div class="profile-card card" style="margin: 20px auto;max-width: 900px;height: 300px;display: flex;">
+    <div class="row g-0">
+      <!-- Profile Image -->
+      <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <img src="{{ student.image_url }}" alt="Profile Picture" class="profile-img" style="width: 100%;height: 300px;object-fit: cover;border-top-left-radius: .25rem;border-bottom-left-radius: .25rem;">
+      </div>
+      <!-- Profile Details -->
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title profile-header" style="text-align: left;">{{student.username}}</h5>
+          <p class="card-text" style="margin: 20px auto;max-width: 900px;"><strong>Name:</strong> {{student.first_name}} {{student.last_name}}</p>
+          <p class="card-text" style="margin: 20px auto;max-width: 900px;"><strong>Email:</strong> {{student.email}}</p>
+          <p class="card-text" style="margin: 20px auto;max-width: 900px;"><strong>Phone:</strong> {{student.phone}}</p>
+          <p class="card-text" style="margin: 20px auto;max-width: 900px;"><strong>Location:</strong> {{student.address}}</p>
+          <p class="card-text" style="margin: 20px auto;max-width: 900px;"><strong>Admin:</strong> {{student.is_superuser}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

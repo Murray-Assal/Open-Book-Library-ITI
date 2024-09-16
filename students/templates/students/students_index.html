@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+{% load static  %}
+
+{% block content %}
+<h1 class="text-center" style="margin: 40px;"> All Students</h1>
+<div class="form-group" style="display: flex;">
+<input type="text" id="student-id" placeholder="Enter Student ID" class="form-control form-control-lg" style="width: 80%;">
+<button onclick="filterStudent()" class="btn btn-primary" style="margin-left: 20px;">Students Filter</button>
+</div>
+
+<table class="table" id="student-table"> 
+  <tr>
+    <th>ID</th>
+    <th>UserName</th>
+    <th>Image</th>
+    <th>Profile</th>
+    <th>Delete</th>
+  </tr>
+  {% for stu in students %}
+    {% if not stu.is_superuser %}
+    <tr data-id="{{ stu.id }}">
+      <td style="vertical-align: middle;">{{stu.id}}</td>
+      <td style="vertical-align: middle;">{{stu.username}}</td>
+      <td><img src="{{stu.image_url}}" alt="image" width="100" height="100"></td>
+      <td style="vertical-align: middle;"><a href="{% url 'students.show' stu.id %}" class="btn btn-info">Show</a></td>
+      <td style="vertical-align: middle;"><a href="{% url 'students.delete' stu.id %}" class="btn btn-danger">Delete</a></td>
+    {% endif %}
+  {% endfor %}
+      
+</table>
+<script src="{% static 'students/js/listStudents.js' %}"></script>
+{% endblock %}
